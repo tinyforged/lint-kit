@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# 使用通用的 npm run 与 npx，避免绑定到 pnpm
+npm run type-check
+npm run lint:circular
+npx --no-install lint-staged

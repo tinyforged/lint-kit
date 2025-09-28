@@ -1,0 +1,128 @@
+{
+  "name": "@tinyforged/lint-kit",
+  "version": "0.0.1",
+  "description": "One-command linting suite — ESlint + Prettier + Stylelint + commitlint",
+  "keywords": [
+    "lint",
+    "eslint",
+    "prettier",
+    "stylelint",
+    "commitlint"
+  ],
+  "homepage": "https://github.com/tinyforged/lint-kit#readme",
+  "bugs": {
+    "url": "https://github.com/tinyforged/lint-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyforged/lint-kit.git"
+  },
+  "license": "MIT",
+  "author": "TinyForged",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:circular": "dpdm src/**/*.{ts,tsx}  --warning false  --tree false  --exit-code circular:1  -T true",
+    "lint:tests:base": "eslint -c tests/eslint.config.js tests/fixtures/basic.ts",
+    "lint:tests:react": "eslint -c tests/eslint.react.config.js tests/fixtures/react.jsx",
+    "lint:tests:vue": "eslint -c tests/eslint.vue.config.js tests/fixtures/vue.vue",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "prepare": "husky && npm run build",
+    "prettier": "prettier -c --write \"**/**\"",
+    "release": "semantic-release",
+    "start": "npm run dev",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.md": [
+      "remark --quiet --output --",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "{src,tests}/**/*.{css,less}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "{src,tests}/**/*.{js,jsx}": [
+      "prettier --write",
+      "stylelint --fix",
+      "eslint --fix"
+    ],
+    "{src,tests}/**/*.{ts,tsx}": [
+      "prettier --parser=typescript --write",
+      "stylelint --fix",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-typescript-sort-keys": "^3.3.0",
+    "eslint-plugin-unicorn": "^61.0.2",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "postcss-less": "^6.0.0",
+    "postcss-styled-syntax": "^0.6.0",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.19",
+    "prettier-plugin-sh": "^0.18.0",
+    "prettier-plugin-sort-json": "^4.1.1",
+    "semantic-release-config-gitmoji": "^1.5.3",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-recommended": "^17.0.0",
+    "stylelint-less": "^3.0.1",
+    "stylelint-order": "^7.0.0",
+    "stylelint-use-logical-spec": "^5.0.1",
+    "vue-eslint-parser": "^9.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "clean-package": "^2.2.0",
+    "dpdm": "^3.14.0",
+    "eslint": "^9.36.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.1",
+    "prettier": "^3.6.2",
+    "remark-cli": "^11.0.0",
+    "semantic-release": "^24.2.9",
+    "stylelint": "^16.24.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

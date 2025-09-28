@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# 使用 npx 运行 commitlint，避免绑定到特定包管理器
+npx commitlint --edit "$1"
