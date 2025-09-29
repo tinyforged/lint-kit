@@ -32,8 +32,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "father build",
+    "dev": "father dev",
+    "doctor": "father doctor",
     "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:circular": "dpdm src/**/*.{ts,tsx}  --warning false  --tree false  --exit-code circular:1  -T true",
     "lint:tests:base": "eslint -c tests/eslint.config.js tests/fixtures/basic.ts",
@@ -108,13 +109,13 @@
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "dpdm": "^3.14.0",
     "eslint": "^9.36.0",
+    "father": "^4.6.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.1",
     "prettier": "^3.6.2",
     "remark-cli": "^11.0.0",
     "semantic-release": "^24.2.9",
     "stylelint": "^16.24.0",
-    "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
