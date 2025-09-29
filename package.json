@@ -55,16 +55,16 @@
     "*.json": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "{src,tests}/**/*.{css,less}": [
+    "*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
     ],
-    "{src,tests}/**/*.{js,jsx}": [
+    "*.{js,jsx}": [
       "prettier --write",
       "stylelint --fix",
       "eslint --fix"
     ],
-    "{src,tests}/**/*.{ts,tsx}": [
+    "*.{ts,tsx}": [
       "prettier --parser=typescript --write",
       "stylelint --fix",
       "eslint --fix"
@@ -102,9 +102,10 @@
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.0.0",
+    "@commitlint/cli": "^19.3.0",
     "@types/node": "^24.5.2",
     "clean-package": "^2.2.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
     "dpdm": "^3.14.0",
     "eslint": "^9.36.0",
     "husky": "^9.1.7",

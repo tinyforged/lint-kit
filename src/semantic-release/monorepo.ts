@@ -1,9 +1,6 @@
-// Monorepo 场景下的 semantic-release 配置（开启 monorepo 支持）
-import { createConfig } from 'semantic-release-config-gitmoji/lib/createConfig';
+// Monorepo 场景可按需扩展；此处先复用单包配置
 
-import { options } from './index';
 
-export default {
-  $schema: 'https://json.schemastore.org/semantic-release',
-  ...createConfig({ ...options, monorepo: true }),
-};
+
+
+export {default} from './index';
