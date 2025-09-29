@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 // semantic-release 配置（兼容 gitmoji 前缀 + Conventional Commits 类型）
-// - 通过 parserOpts 允许可选的 emoji 前缀
+// - 通过 parserOpts 允许可选的 emoji 前缀（支持 :emoji: 与 Unicode emoji）
 // - 使用常规类型（feat/fix 等）决定发版级别，并在 release-notes 中用 emoji 命名分区
 export default {
   $schema: 'https://json.schemastore.org/semantic-release',
@@ -9,9 +9,11 @@ export default {
       '@semantic-release/commit-analyzer',
       {
         parserOpts: {
-          breakingHeaderPattern: /^(?::\w*:\s)?(\w*)(?:\(([\w\$\.\-\* ]*)\))?!:\s(.*)$/,
-          // 允许可选的 gitmoji 前缀，并兼容 ! 语法
-          headerPattern: /^(?::\w*:\s)?(\w*)(?:\(([\w\$\.\-\* ]*)\))?!?:\s(.*)$/,
+          // 允许可选的 gitmoji 前缀（:emoji: 或 Unicode emoji），并兼容 ! 语法
+          breakingHeaderPattern:
+            /^(?:(?::[\w-]+:)|[\p{Extended_Pictographic}\uFE0F\u200D]+)\s?(\w*)(?:\(([\w\$\.\-\* ]*)\))?!:\s(.*)$/u,
+          headerPattern:
+            /^(?:(?::[\w-]+:)|[\p{Extended_Pictographic}\uFE0F\u200D]+)\s?(\w*)(?:\(([\w\$\.\-\* ]*)\))?!?:\s(.*)$/u,
           noteKeywords: ['BREAKING-CHANGE', 'BREAKING CHANGE'],
         },
         preset: 'conventionalcommits',
