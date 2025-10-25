@@ -101,7 +101,7 @@
     "stylelint-less": "^3.0.1",
     "stylelint-order": "^7.0.0",
     "stylelint-use-logical-spec": "^5.0.1",
-    "vue-eslint-parser": "^9.4.3"
+    "vue-eslint-parser": "^10.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
