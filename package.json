@@ -96,7 +96,7 @@
     "prettier-plugin-sh": "^0.18.0",
     "prettier-plugin-sort-json": "^4.1.1",
     "semantic-release-config-gitmoji": "^1.5.3",
-    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-clean-order": "^8.0.0",
     "stylelint-config-recommended": "^17.0.0",
     "stylelint-less": "^3.0.1",
     "stylelint-order": "^7.0.0",
