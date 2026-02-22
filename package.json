@@ -109,7 +109,7 @@
     "clean-package": "^2.2.0",
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "dpdm": "^3.14.0",
-    "eslint": "^9.36.0",
+    "eslint": "^10.0.0",
     "father": "^4.6.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.1",
