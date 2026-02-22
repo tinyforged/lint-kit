@@ -108,7 +108,7 @@
     "@types/node": "^24.5.2",
     "clean-package": "^2.2.0",
     "conventional-changelog-conventionalcommits": "^9.1.0",
-    "dpdm": "^3.14.0",
+    "dpdm": "^4.0.0",
     "eslint": "^9.36.0",
     "father": "^4.6.6",
     "husky": "^9.1.7",
