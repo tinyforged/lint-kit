@@ -3,6 +3,7 @@ export { importRules } from './imports';
 export { overrideRules } from './overrides';
 export { reactRules } from './react';
 export { sortingRules } from './sorting';
+export { svelteRules } from './svelte';
 export { typescriptRules } from './typescript';
 export { unicornRules } from './unicorn';
 export { unusedImportRules } from './unused';

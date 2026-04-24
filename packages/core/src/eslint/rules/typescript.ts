@@ -1,13 +1,14 @@
 // TypeScript 相关规则
 // 使用 @typescript-eslint 插件增强类型相关约束
+// 更新于 ESLint v9 + typescript-eslint v8
 export const typescriptRules = {
   // 禁止使用某些危险或不明确的类型
   // 避免令人困惑的非空断言
   '@typescript-eslint/no-confusing-non-null-assertion': 2,
   // 禁止重复的类成员定义
   '@typescript-eslint/no-dupe-class-members': 2,
-  // 避免空接口
-  '@typescript-eslint/no-empty-interface': 2,
+  // 禁止空对象类型 {} (v8 替代原 no-empty-interface)
+  '@typescript-eslint/no-empty-object-type': 2,
   // this 的使用限制
   '@typescript-eslint/no-invalid-this': 2,
   // 禁止循环中声明函数造成闭包问题
@@ -24,10 +25,26 @@ export const typescriptRules = {
   '@typescript-eslint/no-this-alias': 2,
   // 禁止无用的表达式
   '@typescript-eslint/no-unused-expressions': 2,
-  // 禁止未使用的变量
-  '@typescript-eslint/no-unused-vars': 2,
+  // 禁止未使用的变量（使用 typescript-eslint 版本更精确）
+  '@typescript-eslint/no-unused-vars': [
+    'error',
+    {
+      args: 'after-used',
+      argsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+      vars: 'all',
+      varsIgnorePattern: '^_',
+    },
+  ],
   // 禁止使用前未定义
-  '@typescript-eslint/no-use-before-define': 2,
+  '@typescript-eslint/no-use-before-define': [
+    'error',
+    {
+      classes: true,
+      functions: false,
+      variables: true,
+    },
+  ],
   // 禁止无意义的构造函数
   '@typescript-eslint/no-useless-constructor': 2,
   // 三斜线引用限制

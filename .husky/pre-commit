@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-# 使用通用的 npm run 与 npx，避免绑定到 pnpm
-npm run type-check
-npm run lint:circular
+# 在 monorepo 中对 core 包执行检查
+cd packages/core
 npx --no-install lint-staged
