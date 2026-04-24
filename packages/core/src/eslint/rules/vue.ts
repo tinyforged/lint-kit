@@ -11,9 +11,6 @@ export const vueRules = {
   // 不要直接修改 props（会破坏单向数据流）
   'vue/no-mutating-props': 'warn',
 
-  // setup 中不要对 props 解构，避免失去响应性引用 (Vue 3.3+ defineProps destructure 可能支持，视具体版本而定)
-  'vue/no-setup-props-destructure': 'warn',
-
   // 避免使用 v-html 带来的 XSS 风险（如需 HTML，请经后端或安全过滤）
   'vue/no-v-html': 'off',
 

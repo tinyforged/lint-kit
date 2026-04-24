@@ -1,4 +1,4 @@
-// Unicorn 插件规则覆盖
+// Unicorn 插件规则覆盖（适配 v64）
 // 统一项目中对 Unicorn 推荐规则的取舍
 export const unicornRules = {
   // 统一异常变量名（如 error），提升可读性

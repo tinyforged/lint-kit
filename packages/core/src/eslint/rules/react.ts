@@ -22,11 +22,7 @@ export const reactRules = {
   // 禁止使用未定义的组件或变量
   'react/jsx-no-undef': 2,
 
-  // 标记 React 变量(React 17+ JSX Transform 已不需要，保留以兼容旧代码或按需移除)
-  // 'react/jsx-uses-react': 2,
-
-  // 标记 JSX 中引用的变量为已使用，避免误报未使用变量
-  'react/jsx-uses-vars': 2,
+  // ESLint v10 已内置 JSX 引用追踪，不再需要 jsx-uses-react / jsx-uses-vars
 
   // 一些危险的 props 使用限制
   // 禁止将 children 作为普通属性传递

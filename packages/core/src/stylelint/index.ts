@@ -1,4 +1,4 @@
-// Stylelint 配置
+// Stylelint 配置（适配 v17）
 // - 依赖说明：
 //   - 自定义语法：postcss-less、postcss-styled-syntax（需安装对应包）
 //   - 插件：stylelint-less、stylelint-order、stylelint-use-logical-spec
@@ -17,6 +17,9 @@ export default {
         'color-no-invalid-hex': true,
         'function-no-unknown': null,
         'less/color-no-invalid-hex': true,
+        // v17: 关闭 CSS nesting 相关规则对 Less 的误报
+        'no-descending-specificity': null,
+        'no-duplicate-selectors': null,
       },
     },
     {
