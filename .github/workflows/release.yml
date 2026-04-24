@@ -1,14 +1,14 @@
-name: Build and Release
-
-on:
-  push:
-    branches:
-      - main
+name: Release
 
 permissions:
   contents: write
   pull-requests: write
   issues: write
+
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   release:
@@ -19,17 +19,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install bun
-        uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org/
 
       - name: Install deps
-        run: bun i
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: bun run build
+        run: pnpm run build
 
-      - name: Release
-        run: bun run release
+      - name: Generate Changelog
+        run: npx changelogithub
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm
+        run: pnpm -F @tinyforged/lint-kit publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
