@@ -2,3 +2,12 @@ packages:
   - 'packages/*'
   - 'examples/*'
   - 'docs'
+
+catalog:
+  '@commitlint/cli': ^20.5.0
+  prettier: ^3.8.3
+  husky: ^9.1.7
+  lint-staged: ^16.4.0
+  eslint: ^10.2.1
+  typescript: ^6.0.3
+  stylelint: ^17.9.0

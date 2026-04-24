@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "@tinyforged/lint-kit": "workspace:*",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   }
 }
