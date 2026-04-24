@@ -1,6 +1,6 @@
 {
   "name": "@tinyforged/lint-kit",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "One-command linting suite — ESlint + Prettier + Stylelint + commitlint",
   "keywords": [
     "lint",
