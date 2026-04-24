@@ -1,6 +1,6 @@
 import { eslintBase } from './base';
 
-export const eslintNest = [
+export const eslintNest: any[] = [
   ...eslintBase,
   {
     files: ['**/*.ts'],

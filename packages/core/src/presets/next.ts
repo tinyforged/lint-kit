@@ -2,7 +2,7 @@ import nextPlugin from '@next/eslint-plugin-next';
 
 import { eslintReact } from './react';
 
-export const eslintNext = [
+export const eslintNext: any[] = [
   ...eslintReact,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],

@@ -11,7 +11,7 @@ export default createPreset({
   parserOptions: {
     ecmaFeatures: { jsx: false },
 
-    ecmaVersion: 2020,
+    ecmaVersion: 2022,
     // 委托给 @typescript-eslint/parser 解析脚本
     parser: '@typescript-eslint/parser',
     sourceType: 'module',

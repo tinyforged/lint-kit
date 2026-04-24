@@ -1,20 +1,19 @@
+import tsParser from '@typescript-eslint/parser';
 import vuePlugin from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
 
 import { vueRules } from '../eslint/rules/vue';
 import { eslintBase } from './base';
 
-const vueParserCjs = require('vue-eslint-parser');
-const tsParserCjs = require('@typescript-eslint/parser');
-
-export const eslintVue = [
+export const eslintVue: any[] = [
   ...eslintBase,
   {
     files: ['**/*.{js,jsx,ts,tsx}', '**/*.vue'],
     languageOptions: {
-      parser: vueParserCjs as any,
+      parser: vueParser as any,
       parserOptions: {
-        ecmaVersion: 2020,
-        parser: tsParserCjs as any,
+        ecmaVersion: 2022,
+        parser: tsParser as any,
         sourceType: 'module',
       },
     },

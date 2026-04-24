@@ -1,19 +1,19 @@
+import tsParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 import { reactRules } from '../eslint/rules/react';
 import { eslintBase } from './base';
 
-const tsParserCjs = require('@typescript-eslint/parser');
-
-export const eslintReact = [
+export const eslintReact: any[] = [
   ...eslintBase,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
-      parser: tsParserCjs as any,
+      parser: tsParser as any,
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaFeatures: { jsx: true },
+        ecmaVersion: 2022,
         sourceType: 'module',
       },
     },

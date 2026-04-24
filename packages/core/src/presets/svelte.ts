@@ -1,12 +1,11 @@
+import tsParser from '@typescript-eslint/parser';
 import sveltePlugin from 'eslint-plugin-svelte';
+import svelteParser from 'svelte-eslint-parser';
 
 import { svelteRules } from '../eslint/rules/svelte';
 import { eslintBase } from './base';
 
-const svelteParser = require('svelte-eslint-parser');
-const tsParserCjs = require('@typescript-eslint/parser');
-
-export const eslintSvelte = [
+export const eslintSvelte: any[] = [
   ...eslintBase,
   ...sveltePlugin.configs['flat/recommended'],
   ...sveltePlugin.configs['flat/prettier'],
@@ -16,7 +15,7 @@ export const eslintSvelte = [
       parser: svelteParser,
       parserOptions: {
         extraFileExtensions: ['.svelte'],
-        parser: tsParserCjs as any,
+        parser: tsParser as any,
       },
     },
     rules: {

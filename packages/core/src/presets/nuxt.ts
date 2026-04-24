@@ -1,6 +1,6 @@
 import { eslintVue } from './vue';
 
-export const eslintNuxt = [
+export const eslintNuxt: any[] = [
   ...eslintVue,
   {
     files: ['**/*.{js,jsx,ts,tsx}', '**/*.vue'],

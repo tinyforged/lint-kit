@@ -1,7 +1,7 @@
-const { eslint: eslintConfig } = require('./dist');
+const { eslintBase } = require('./dist');
 
 module.exports = [
-  ...eslintConfig,
+  ...eslintBase,
   // 同步 .eslintignore 到 Flat Config ignores
   {
     ignores: [

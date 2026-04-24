@@ -17,11 +17,10 @@ export default {
   extends: ['eslint:recommended', 'plugin:unicorn/recommended'],
   plugins: [
     'unicorn',
-    'import',
+    'import-x',
     'unused-imports',
     'simple-import-sort',
     'sort-keys-fix',
-    'typescript-sort-keys',
     '@typescript-eslint',
   ],
   rules: {

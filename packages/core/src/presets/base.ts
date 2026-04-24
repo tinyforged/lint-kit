@@ -1,8 +1,9 @@
 import js from '@eslint/js';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import-x';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import sortKeysFix from 'eslint-plugin-sort-keys-fix';
-import typescriptSortKeys from 'eslint-plugin-typescript-sort-keys';
 import unicornPlugin from 'eslint-plugin-unicorn';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
 import globals from 'globals';
@@ -17,31 +18,28 @@ import {
   unusedImportRules,
 } from '../eslint/rules';
 
-const tsParserCjs = require('@typescript-eslint/parser');
-const importPluginCjs = require('eslint-plugin-import');
-
 const unicornRecommendedRules = (unicornPlugin as any)?.configs?.recommended?.rules ?? {};
 
-export const eslintBase = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const eslintBase: any[] = [
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.es2021,
+        ...globals.es2022,
       },
-      parser: tsParserCjs as any,
+      parser: tsParser as any,
       sourceType: 'module',
     },
     plugins: {
       '@typescript-eslint': tsPlugin as any,
-      'import': importPluginCjs as any,
+      'import-x': importPlugin as any,
       'simple-import-sort': simpleImportSort as any,
       'sort-keys-fix': sortKeysFix as any,
-      'typescript-sort-keys': typescriptSortKeys as any,
       'unicorn': unicornPlugin as any,
       'unused-imports': unusedImportsPlugin as any,
     },
