@@ -1,19 +1,3 @@
-const { eslintBase } = require('./dist');
+import { defineConfig } from './dist/index.mjs';
 
-module.exports = [
-  ...eslintBase,
-  // 同步 .eslintignore 到 Flat Config ignores
-  {
-    ignores: [
-      'node_modules',
-      '.coverage',
-      'jest*',
-      '_test_',
-      '__test__',
-      'dist',
-      'es',
-      'lib',
-      'logs',
-    ],
-  },
-];
+export default defineConfig();

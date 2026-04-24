@@ -20,49 +20,21 @@
   "license": "MIT",
   "author": "TinyForged",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "default": "./dist/index.mjs"
     },
-    "./base": {
-      "types": "./dist/presets/base.d.ts",
-      "default": "./dist/presets/base.js"
-    },
-    "./react": {
-      "types": "./dist/presets/react.d.ts",
-      "default": "./dist/presets/react.js"
-    },
-    "./vue": {
-      "types": "./dist/presets/vue.d.ts",
-      "default": "./dist/presets/vue.js"
-    },
-    "./next": {
-      "types": "./dist/presets/next.d.ts",
-      "default": "./dist/presets/next.js"
-    },
-    "./nuxt": {
-      "types": "./dist/presets/nuxt.d.ts",
-      "default": "./dist/presets/nuxt.js"
-    },
-    "./nest": {
-      "types": "./dist/presets/nest.d.ts",
-      "default": "./dist/presets/nest.js"
-    },
-    "./svelte": {
-      "types": "./dist/presets/svelte.d.ts",
-      "default": "./dist/presets/svelte.js"
-    }
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "father build",
-    "dev": "father dev",
-    "doctor": "father doctor",
+    "build": "tsdown",
     "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:circular": "dpdm src/**/*.{ts,tsx}  --warning false  --tree false  --exit-code circular:1  -T true",
     "lint:tests:base": "eslint -c tests/eslint.config.js tests/fixtures/basic.ts",
@@ -104,25 +76,26 @@
     ]
   },
   "dependencies": {
+    "@eslint-react/eslint-plugin": "^4.2.3",
     "@eslint/js": "^10.0.1",
     "@next/eslint-plugin-next": "^16.2.4",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^8.59.0",
     "@typescript-eslint/parser": "^8.59.0",
     "commitlint-config-gitmoji": "^2.3.1",
+    "eslint-config-flat-gitignore": "^2.3.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-flat-config-utils": "^3.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import-x": "^4.16.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-simple-import-sort": "^13.0.0",
-    "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-svelte": "^3.17.1",
     "eslint-plugin-unicorn": "^64.0.0",
     "eslint-plugin-unused-imports": "^4.4.1",
     "eslint-plugin-vue": "^10.9.0",
     "globals": "^17.5.0",
+    "local-pkg": "^1.1.2",
     "postcss-less": "^6.0.0",
     "postcss-styled-syntax": "^0.7.1",
     "prettier-plugin-organize-imports": "^4.3.0",
@@ -146,13 +119,12 @@
     "conventional-changelog-conventionalcommits": "^9.3.1",
     "dpdm": "^4.0.1",
     "eslint": "^10.2.1",
-    "father": "^4.6.19",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "remark-cli": "^12.0.1",
     "semantic-release": "^25.0.3",
     "stylelint": "^17.9.0",
+    "tsdown": "^0.21.10",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
