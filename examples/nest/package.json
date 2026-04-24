@@ -1,0 +1,8 @@
+{
+    "name": "@example/nest",
+    "private": true,
+    "devDependencies": {
+        "@tinyforged/lint-kit": "workspace:*",
+        "@nestjs/core": "latest"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "@example/svelte",
+    "private": true,
+    "devDependencies": {
+        "@tinyforged/lint-kit": "workspace:*",
+        "svelte": "latest"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "@example/nuxt",
+    "private": true,
+    "devDependencies": {
+        "@tinyforged/lint-kit": "workspace:*",
+        "nuxt": "latest"
+    }
+}
