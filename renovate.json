@@ -1,13 +1,56 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": false,
+  "automerge": true,
+  "automergeType": "pr",
   "dependencyDashboard": true,
   "ignoreDeps": [],
   "labels": ["dependencies"],
   "postUpdateOptions": ["yarnDedupeHighest"],
-  "prConcurrentLimit": 30,
+  "prConcurrentLimit": 10,
   "prHourlyLimit": 0,
   "rebaseWhen": "conflicted",
-  "schedule": "on sunday before 6:00am",
-  "timezone": "UTC"
+  "schedule": ["on sunday before 6:00am"],
+  "timezone": "UTC",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchDepTypes": ["dependencies"],
+      "automerge": true
+    },
+    {
+      "groupName": "eslint ecosystem",
+      "matchPackagePrefixes": ["eslint", "@eslint"],
+      "groupSlug": "eslint"
+    },
+    {
+      "groupName": "stylelint ecosystem",
+      "matchPackagePrefixes": ["stylelint"],
+      "groupSlug": "stylelint"
+    },
+    {
+      "groupName": "prettier ecosystem",
+      "matchPackagePrefixes": ["prettier", "@trivago/prettier"],
+      "groupSlug": "prettier"
+    },
+    {
+      "groupName": "typescript",
+      "matchPackagePrefixes": ["typescript", "@types/"],
+      "groupSlug": "typescript"
+    },
+    {
+      "groupName": "github actions",
+      "matchManagers": ["github-actions"],
+      "groupSlug": "github-actions"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ]
 }
