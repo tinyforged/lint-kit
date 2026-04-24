@@ -1,6 +1,5 @@
-import { eslintBase } from '@tinyforged/lint-kit';
+import { eslintBase } from 'lint-kit/base';
 
 export default [
-  { ignores: ['dist/**', 'node_modules/**'] },
   ...eslintBase,
 ];

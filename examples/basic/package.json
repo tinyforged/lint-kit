@@ -1,17 +1,7 @@
 {
-  "name": "lint-kit-example-basic",
-  "version": "0.0.0",
+  "name": "@example/basic",
   "private": true,
-  "description": "Minimal example project consuming @tinyforged/lint-kit",
-  "type": "module",
-  "scripts": {
-    "lint": "eslint \"src/**/*.{js,ts}\""
-  },
-  "dependencies": {
-    "@tinyforged/lint-kit": "workspace:*"
-  },
   "devDependencies": {
-    "eslint": "^9.36.0",
-    "typescript": "^5.9.2"
+    "@tinyforged/lint-kit": "workspace:*"
   }
 }

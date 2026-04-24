@@ -1,6 +1,5 @@
-import { eslintVue } from '@tinyforged/lint-kit';
+import { eslintVue } from 'lint-kit/vue';
 
 export default [
-  { ignores: ['dist/**', 'node_modules/**'] },
   ...eslintVue,
 ];
