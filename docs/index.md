@@ -14,10 +14,10 @@ hero:
       link: https://github.com/tinyforged/lint-kit
 
 features:
-  - title: Framework Ready
-    details: Presets for React, Vue 3, Next.js, Nuxt.js, NestJS, and Svelte.
+  - title: Auto-Detection
+    details: Automatically detects React, Vue, Nuxt, Svelte, TypeScript from your dependencies.
   - title: Modern Stack
-    details: Built for ESLint v9, Stylelint v16, and Prettier v3.
+    details: Built for ESLint v10, Stylelint v17, and Prettier v3.
   - title: One Command
-    details: No more configuration hell. Works out of the box.
+    details: defineConfig() — zero config needed for most projects.
 ---

@@ -1,5 +1,3 @@
-import { eslintReact } from 'lint-kit/react';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-  ...eslintReact,
-];
+export default defineConfig();

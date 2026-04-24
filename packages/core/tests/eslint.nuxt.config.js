@@ -1,3 +1,17 @@
-const { eslintNuxt } = require('../dist/presets/nuxt');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = [...eslintNuxt];
+export default defineConfig(
+  {
+    autoDetect: false,
+    vue: true,
+    typescript: true,
+  },
+  {
+    name: 'kit/nuxt/overrides',
+    files: ['**/*.vue'],
+    rules: {
+      'no-undef': 'off',
+      'vue/multi-word-component-names': 'off',
+    },
+  },
+);

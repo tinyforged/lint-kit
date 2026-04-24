@@ -1,4 +1,6 @@
-// Use the built config from dist to validate consumer setup
-const kit = require('../dist/index.js');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = kit.eslint;
+export default defineConfig({
+  autoDetect: false,
+  typescript: true,
+});

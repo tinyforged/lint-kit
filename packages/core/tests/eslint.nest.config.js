@@ -1,3 +1,6 @@
-const { eslintNest } = require('../dist/presets/nest');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = [...eslintNest];
+export default defineConfig({
+  autoDetect: false,
+  typescript: true,
+});

@@ -1,3 +1,7 @@
-const { eslintNext } = require('../dist/presets/next');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = [...eslintNext];
+export default defineConfig({
+  autoDetect: false,
+  react: true,
+  typescript: true,
+});

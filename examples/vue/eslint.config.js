@@ -1,5 +1,3 @@
-import { eslintVue } from 'lint-kit/vue';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-  ...eslintVue,
-];
+export default defineConfig();

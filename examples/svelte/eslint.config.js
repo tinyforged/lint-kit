@@ -1,5 +1,3 @@
-import { eslintSvelte } from 'lint-kit/svelte';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-    ...eslintSvelte,
-];
+export default defineConfig();

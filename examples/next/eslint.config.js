@@ -1,5 +1,3 @@
-import { eslintNext } from 'lint-kit/next';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-    ...eslintNext,
-];
+export default defineConfig();

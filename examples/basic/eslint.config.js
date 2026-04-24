@@ -1,5 +1,3 @@
-import { eslintBase } from 'lint-kit/base';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-  ...eslintBase,
-];
+export default defineConfig();

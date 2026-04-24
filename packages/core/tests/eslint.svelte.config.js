@@ -1,3 +1,7 @@
-const { eslintSvelte } = require('../dist/presets/svelte');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = [...eslintSvelte];
+export default defineConfig({
+  autoDetect: false,
+  svelte: true,
+  typescript: true,
+});

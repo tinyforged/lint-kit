@@ -1,5 +1,3 @@
-import { eslintNest } from 'lint-kit/nest';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-    ...eslintNest,
-];
+export default defineConfig();

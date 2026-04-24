@@ -1,5 +1,3 @@
-import { eslintNuxt } from 'lint-kit/nuxt';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-    ...eslintNuxt,
-];
+export default defineConfig();

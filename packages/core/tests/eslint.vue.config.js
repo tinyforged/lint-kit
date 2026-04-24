@@ -1,4 +1,7 @@
-// Smoke test config for Vue using the built kit
-const kit = require('../dist/index.js');
+import { defineConfig } from '../dist/index.mjs';
 
-module.exports = kit.eslintVue;
+export default defineConfig({
+  autoDetect: false,
+  vue: true,
+  typescript: true,
+});

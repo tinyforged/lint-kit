@@ -2,7 +2,7 @@
 
 A systematic upgrade to the frontend linting suite: ESLint + Prettier + Stylelint + Commitlint + Semantic Release.
 
-This package provides modern (ESLint v9 flat config), framework-specific (React, Vue, Next.js, Nuxt.js, Svelte, NestJS) presets and optimized defaults.
+This package provides modern (ESLint v10 flat config), auto-detecting, framework-specific configurations with a clean factory API.
 
 ## Documentation
 
@@ -10,11 +10,12 @@ This package provides modern (ESLint v9 flat config), framework-specific (React,
 
 ## Features
 
-- **Framework Presets**: Dedicated ESLint flat configs for React, Vue 3, Next.js, Nuxt.js, Svelte, and NestJS.
-- **Modern Stack**: Support for ESLint v9, Stylelint v16, Prettier v3.
-- **Unified config**: Easy exports for Prettier, Stylelint, Commitlint, and Semantic Release.
+- **Auto-Detection**: Automatically detects React, Vue, Nuxt, TypeScript, Svelte from your dependencies.
+- **Factory API**: `defineConfig()` with typed options for fine-grained control.
+- **Modern Stack**: ESLint v10, Stylelint v17, Prettier v3, Commitlint v20.
+- **Unified Config**: Easy exports for Prettier, Stylelint, Commitlint, and Semantic Release.
 - **Enhanced Stylelint**: Supports Less and CSS-in-JS parsers (`postcss-less`, `postcss-styled-syntax`).
-- **Gitmoji & Semantic Release**: Built-in support for gitmoji conventions and automatic relesaes.
+- **Gitmoji & Semantic Release**: Built-in support for gitmoji conventions and automatic releases.
 
 ## Installation
 
@@ -22,25 +23,19 @@ This package provides modern (ESLint v9 flat config), framework-specific (React,
 pnpm add -D @tinyforged/lint-kit
 ```
 
-## Quick Start (ESLint)
+## Quick Start
 
 In `eslint.config.js`:
 
 ```javascript
-import { eslintBase } from '@tinyforged/lint-kit/base';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-// or specific frameworks:
-// import { eslintReact } from '@tinyforged/lint-kit/react';
-// import { eslintVue } from '@tinyforged/lint-kit/vue';
-// import { eslintNext } from '@tinyforged/lint-kit/next';
-// import { eslintNuxt } from '@tinyforged/lint-kit/nuxt';
-// import { eslintSvelte } from '@tinyforged/lint-kit/svelte';
-// import { eslintNest } from '@tinyforged/lint-kit/nest';
-
-export default [{ ignores: ['dist', 'node_modules'] }, ...eslintBase];
+export default defineConfig();
 ```
 
-For other tools (Prettier, Stylelint, Commitlint), see the [Guide](./docs/guide.md).
+That's it — `defineConfig()` auto-detects your installed frameworks and configures everything.
+
+For advanced usage and other tools (Prettier, Stylelint, Commitlint), see the [Guide](../../docs/guide.md).
 
 ## License
 

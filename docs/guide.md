@@ -1,6 +1,6 @@
 # User Guide
 
-`lint-kit` is an all-in-one linting suite providing presets for various frameworks.
+`lint-kit` is an all-in-one linting suite with auto-detection for your project's framework.
 
 ## Installation
 
@@ -12,76 +12,75 @@ npm install @tinyforged/lint-kit --save-dev
 
 ### ESLint
 
-Since version 1.0.3, `lint-kit` exports specific presets for ESLint Flat Config (`eslint.config.js`).
-
-#### Basic (JS/TS)
+Create `eslint.config.js` in your project root:
 
 ```js
-import { eslintBase } from '@tinyforged/lint-kit/base';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-  ...eslintBase,
-];
+export default defineConfig();
 ```
 
-#### React
+`defineConfig()` automatically detects installed frameworks (React, Vue, Svelte, TypeScript) and enables the appropriate rules. No manual framework selection needed.
+
+#### Options
 
 ```js
-import { eslintReact } from '@tinyforged/lint-kit/react';
+import { defineConfig } from '@tinyforged/lint-kit';
 
-export default [
-  ...eslintReact,
-];
+export default defineConfig({
+  // Project type: 'app' (default) or 'lib'
+  type: 'lib',
+
+  // Disable auto-detection and manually control features
+  autoDetect: false,
+  typescript: true,
+  react: true,
+  vue: true,
+  svelte: true,
+
+  // Enable code style rules
+  stylistic: { indent: 2, quotes: 'single', semi: true },
+
+  // Add custom ignores
+  ignores: ['**/generated/**'],
+
+  // Override rules for specific features
+  overrides: {
+    typescript: { '@typescript-eslint/no-explicit-any': 'warn' },
+    react: { 'react-x/rules-of-hooks': 'warn' },
+  },
+
+  // Pass additional ESLint flat config items
+}, {
+  name: 'my-project/custom',
+  rules: { 'no-console': 'warn' },
+});
 ```
 
-#### Vue 3
+#### Feature-Specific Options
 
 ```js
-import { eslintVue } from '@tinyforged/lint-kit/vue';
+// TypeScript
+defineConfig({
+  typescript: {
+    componentExts: ['vue', 'svelte'],
+    overrides: { '@typescript-eslint/no-explicit-any': 'off' },
+  },
+});
 
-export default [
-  ...eslintVue,
-];
-```
+// React
+defineConfig({
+  react: {
+    overrides: { 'react-x/dom-no-unsafe-target-blank': 'off' },
+  },
+});
 
-#### Next.js
-
-```js
-import { eslintNext } from '@tinyforged/lint-kit/next';
-
-export default [
-  ...eslintNext,
-];
-```
-
-#### Nuxt.js
-
-```js
-import { eslintNuxt } from '@tinyforged/lint-kit/nuxt';
-
-export default [
-  ...eslintNuxt,
-];
-```
-
-#### Svelte
-
-```js
-import { eslintSvelte } from '@tinyforged/lint-kit/svelte';
-
-export default [
-  ...eslintSvelte,
-];
-```
-
-#### NestJS
-
-```js
-import { eslintNest } from '@tinyforged/lint-kit/nest';
-
-export default [
-  ...eslintNest,
-];
+// Vue
+defineConfig({
+  vue: {
+    overrides: { 'vue/no-v-html': 'off' },
+  },
+});
 ```
 
 ### Prettier
@@ -104,9 +103,9 @@ module.exports = stylelint;
 
 ### Commitlint
 
-Create `.commitlintrc.js`:
+Create `commitlint.config.js`:
 
 ```js
-const { commitlint } = require('@tinyforged/lint-kit');
-module.exports = commitlint;
+import { commitlint } from '@tinyforged/lint-kit';
+export default commitlint;
 ```
