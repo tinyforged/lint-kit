@@ -1,0 +1,10 @@
+export const GLOB_SRC = '**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}';
+export const GLOB_JS = '**/*.{js,mjs,cjs}';
+export const GLOB_TS = '**/*.{ts,mts,cts}';
+export const GLOB_TSX = '**/*.tsx';
+export const GLOB_VUE = '**/*.vue';
+export const GLOB_JSON = '**/*.json';
+export const GLOB_JSONC = '**/*.jsonc';
+export const GLOB_SVELTE = '**/*.svelte';
+export const GLOB_MD = '**/*.md';
+export const GLOB_NODE_SCRIPTS = ['.eslintrc.cjs', 'commitlint.config.cjs'];

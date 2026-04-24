@@ -1,0 +1,11 @@
+export { comments } from './comments';
+export { gitignore } from './gitignore';
+export { ignores } from './ignores';
+export { javascript } from './javascript';
+export { jsonc } from './jsonc';
+export { node } from './node';
+export { react } from './react';
+export { stylistic } from './stylistic';
+export { svelte } from './svelte';
+export { typescript } from './typescript';
+export { vue } from './vue';

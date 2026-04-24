@@ -1,5 +1,6 @@
-module.exports = {
+import { semanticRelease } from './dist/index.mjs';
+
+export default {
   branches: ['main'],
-  // 复用内置的 gitmoji 风格 semantic-release 配置
-  ...require('./dist').semanticRelease,
+  ...semanticRelease,
 };

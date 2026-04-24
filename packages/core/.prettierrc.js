@@ -1,1 +1,5 @@
-module.exports = require('./dist').prettier;
+
+
+
+
+export {prettier as default} from './dist/index.mjs';

@@ -1,1 +1,5 @@
-module.exports = require('./dist').stylelint;
+
+
+
+
+export {stylelint as default} from './dist/index.mjs';
